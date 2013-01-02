@@ -83,7 +83,6 @@ public final class Colleague {
             if (hits++ == position) {
                 return element;
             }
-            
         }
         throw new IndexOutOfBoundsException("index: " + position);
 	}
@@ -110,36 +109,84 @@ public final class Colleague {
         }
     }
 	
-	
+	/**
+	 * 
+	 * @param elements
+	 * @param position
+	 * @param finder
+	 * @return
+	 */
 	public static <E> E getElementAt(Collection<E> elements, int position, Predicate<E> finder) {
 		Checker<E> checker = new PredicateChecker<E>(finder);
 		return getElementAt(elements, position, checker);
     }
 	
+	/**
+	 * 
+	 * @param elements
+	 * @param position
+	 * @param finder
+	 * @param arg
+	 * @return
+	 */
 	public static <E, A> E getElementAt(Collection<E> elements, int position, ParameterizedPredicate<E, A> finder, A arg) {
 		Checker<E> checker = new ParameterizedPredicateChecker<E, A>(finder, arg);
 		return getElementAt(elements, position, checker);
 	}
 	
+	/**
+	 * 
+	 * @param elements
+	 * @param finder
+	 * @return
+	 */
 	public static <E> List<E> getElements(Collection<E> elements, Predicate<E> finder) {
 		Checker<E> checker = new PredicateChecker<E>(finder);
 		return getElements(elements, checker);
     }
 	
+	/**
+	 * 
+	 * @param elements
+	 * @param finder
+	 * @param arg
+	 * @return
+	 */
 	public static <E, A> List<E> getElements(Collection<E> elements, ParameterizedPredicate<E, A> finder, A arg) {
 		Checker<E> checker = new ParameterizedPredicateChecker<E, A>(finder, arg);
 		return getElements(elements, checker);
     }
 
+	/**
+	 * 
+	 * @param elements
+	 * @param operation
+	 * @throws OperationException
+	 */
     public static <E> void each(Collection<E> elements, Operation<E> operation) throws OperationException {
     	each(elements, new AcceptAllChecker<E>(), operation);
     }
 
+    /**
+     * 
+     * @param elements
+     * @param finder
+     * @param operation
+     * @throws OperationException
+     */
     public static <E> void each(Collection<E> elements, Predicate<E> finder, Operation<E> operation) throws OperationException {
     	Checker<E> checker = new PredicateChecker<E>(finder);
     	each(elements, checker, operation);
     }
 
+    /**
+     * 
+     * @param elements
+     * @param finder
+     * @param arg
+     * @param operation
+     * @throws OperationException
+     */
     public static <E, A> void each(Collection<E> elements, ParameterizedPredicate<E, A> finder, A arg, Operation<E> operation) throws OperationException {
     	Checker<E> checker = new ParameterizedPredicateChecker<E, A>(finder, arg);
     	each(elements, checker, operation);
