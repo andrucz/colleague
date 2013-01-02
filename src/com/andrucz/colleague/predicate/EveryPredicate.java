@@ -1,8 +1,8 @@
-package com.andrucz.colleague;
+package com.andrucz.colleague.predicate;
 
-public final class AndPredicate<E> extends CompositePredicate<E> {
+public final class EveryPredicate<E> extends CompositePredicate<E> {
 
-	public AndPredicate(Predicate<E> first, Predicate<E>... predicates) {
+	public EveryPredicate(Predicate<E> first, Predicate<E>... predicates) {
 		super(first, predicates);
 	}
 

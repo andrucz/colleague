@@ -1,4 +1,4 @@
-package com.andrucz.colleague;
+package com.andrucz.colleague.predicate;
 
 public abstract class ParameterizedPredicate<E, A> {
 

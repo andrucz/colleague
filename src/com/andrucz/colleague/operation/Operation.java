@@ -1,4 +1,4 @@
-package com.andrucz.colleague;
+package com.andrucz.colleague.operation;
 
 public abstract class Operation<E> {
 

@@ -1,4 +1,4 @@
-package com.andrucz.colleague;
+package com.andrucz.colleague.predicate;
 
 import java.util.ArrayList;
 import java.util.List;
