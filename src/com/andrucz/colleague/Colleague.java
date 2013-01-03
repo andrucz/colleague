@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
+import com.andrucz.colleague.conversion.ElementConverter;
 import com.andrucz.colleague.operation.Operation;
 import com.andrucz.colleague.operation.OperationException;
 import com.andrucz.colleague.predicate.AcceptAllPredicate;
@@ -133,4 +134,24 @@ public final class Colleague {
 		return false;
 	}
 	
+	
+	public static <E, R> List<R> convert(Collection<E> elements, Predicate<E> predicate, ElementConverter<E, R> converter) {
+		checkNotNull(predicate, "predicate");
+		checkNotNull(converter, "converter");
+		
+		List<R> result = new ArrayList<R>();
+		
+		for (E element : elements) {
+			if (predicate.accept(element)) {
+				R converted = converter.convert(element);
+				result.add(converted);
+			}
+		}
+		
+		return result;
+	}
+	
+	public static <E, R> List<R> convert(Collection<E> elements, ElementConverter<E, R> converter) {
+		return convert(elements, new AcceptAllPredicate<E>(), converter);
+	}
 }
