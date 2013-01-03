@@ -4,7 +4,7 @@ import com.andrucz.colleague.predicate.ParameterizedPredicate;
 
 public final class EndsWithPredicate extends ParameterizedPredicate<String, String> {
 
-	protected EndsWithPredicate(String arg) {
+	public EndsWithPredicate(String arg) {
 		super(arg);
 	}
 

@@ -4,7 +4,7 @@ import com.andrucz.colleague.predicate.ParameterizedPredicate;
 
 public final class LessThanPredicate<E extends Comparable<E>> extends ParameterizedPredicate<E, E> {
 
-	protected LessThanPredicate(E arg) {
+	public LessThanPredicate(E arg) {
 		super(arg);
 	}
 

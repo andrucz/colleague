@@ -8,19 +8,24 @@ public final class PrintOperation<E> extends Operation<E> {
 
 	private PrintStream out;
 	
-	private String preffix;
-	private String suffix;
+	private String globalPreffix;
+	private String globalSuffix;
 	
-	public PrintOperation(PrintStream out, String preffix, String suffix) {
+	private String elementPreffix;
+	private String elementSuffix;
+	
+	public PrintOperation(PrintStream out, String globalPreffix, String globalSuffix, String elementPreffix, String elementSuffix) {
 		checkNotNull(out, "out");
 		
 		this.out = out;
-		this.preffix = preffix;
-		this.suffix = suffix;
+		this.globalPreffix = globalPreffix;
+		this.globalSuffix = globalSuffix;
+		this.elementPreffix = elementPreffix;
+		this.elementSuffix = elementSuffix;
 	}
 	
 	public PrintOperation(PrintStream out) {
-		this(out, null, null);
+		this(out, null, null, null, null);
 	}
 	
 	public PrintStream getOut() {
@@ -31,33 +36,61 @@ public final class PrintOperation<E> extends Operation<E> {
 		this.out = out;
 	}
 
-	public String getPreffix() {
-		return preffix;
+	public String getGlobalPreffix() {
+		return globalPreffix;
 	}
 
-	public void setPreffix(String preffix) {
-		this.preffix = preffix;
+	public void setGlobalPreffix(String globalPreffix) {
+		this.globalPreffix = globalPreffix;
 	}
 
-	public String getSuffix() {
-		return suffix;
+	public String getGlobalSuffix() {
+		return globalSuffix;
 	}
 
-	public void setSuffix(String suffix) {
-		this.suffix = suffix;
+	public void setGlobalSuffix(String globalSuffix) {
+		this.globalSuffix = globalSuffix;
 	}
 
+	public String getElementPreffix() {
+		return elementPreffix;
+	}
+
+	public void setElementPreffix(String elementPreffix) {
+		this.elementPreffix = elementPreffix;
+	}
+
+	public String getElementSuffix() {
+		return elementSuffix;
+	}
+
+	public void setElementSuffix(String elementSuffix) {
+		this.elementSuffix = elementSuffix;
+	}
+
+	private void print(String str) {
+		if (str != null) {
+			out.print(str);
+		}
+	}
+	
+	@Override
+	public void prepare() {
+		print(globalPreffix);
+	}
+	
 	@Override
 	public void execute(E element) throws OperationException {
-		if (preffix != null) {
-			out.print(preffix);
-		}
+		print(elementPreffix);
 		
 		out.print(element);
 		
-		if (suffix != null) {
-			out.print(suffix);
-		}
+		print(elementSuffix);
+	}
+	
+	@Override
+	public void finish() {
+		print(globalSuffix);
 	}
 
 }

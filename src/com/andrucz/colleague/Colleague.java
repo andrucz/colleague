@@ -7,6 +7,7 @@ import java.util.List;
 
 import com.andrucz.colleague.operation.Operation;
 import com.andrucz.colleague.operation.OperationException;
+import com.andrucz.colleague.predicate.AcceptAllPredicate;
 import com.andrucz.colleague.predicate.Predicate;
 
 import static com.andrucz.colleague.util.Checks.checkNotNull;
@@ -58,20 +59,19 @@ public final class Colleague {
 		checkNotNull(predicate, "predicate");
 		checkNotNull(operation, "operation");
 		
+		operation.prepare();
+		
         for (E element : elements) {
         	
             if (predicate.accept(element)) {
                 operation.execute(element);
             }
         }
+        operation.finish();
     }
 	
 	public static <E> void each(Collection<E> elements, Operation<E> operation) throws OperationException {
-		checkNotNull(operation, "operation");
-		
-		for (E element : elements) {
-			operation.execute(element);
-		}
+		each(elements, new AcceptAllPredicate<E>(), operation);
 	}
 	
 	public static <E> boolean remove(Collection<E> elements, Predicate<E> predicate) {

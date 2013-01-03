@@ -4,7 +4,7 @@ import com.andrucz.colleague.predicate.ParameterizedPredicate;
 
 public final class StartsWithPredicate extends ParameterizedPredicate<String, String> {
 
-	protected StartsWithPredicate(String arg) {
+	public StartsWithPredicate(String arg) {
 		super(arg);
 	}
 

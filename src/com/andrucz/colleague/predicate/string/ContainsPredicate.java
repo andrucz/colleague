@@ -4,7 +4,7 @@ import com.andrucz.colleague.predicate.ParameterizedPredicate;
 
 public final class ContainsPredicate extends ParameterizedPredicate<String, String> {
 
-	protected ContainsPredicate(String arg) {
+	public ContainsPredicate(String arg) {
 		super(arg);
 	}
 

@@ -4,7 +4,7 @@ import com.andrucz.colleague.predicate.ParameterizedPredicate;
 
 public final class EqualsToPredicate<E extends Comparable<E>> extends ParameterizedPredicate<E, E> {
 
-	protected EqualsToPredicate(E arg) {
+	public EqualsToPredicate(E arg) {
 		super(arg);
 	}
 
