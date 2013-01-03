@@ -1,4 +1,6 @@
-package com.andrucz.colleague.predicate;
+package com.andrucz.colleague.predicate.composite;
+
+import com.andrucz.colleague.predicate.Predicate;
 
 public final class AnyPredicate<E> extends CompositePredicate<E> {
 

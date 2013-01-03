@@ -1,7 +1,15 @@
 package com.andrucz.colleague.predicate;
 
-public abstract class ParameterizedPredicate<E, A> {
+public abstract class ParameterizedPredicate<E, A> extends Predicate<E> {
 
-	public abstract boolean accept(E element, A arg);
+	protected final A arg;
+	
+	protected ParameterizedPredicate(A arg) {
+		this.arg = arg;
+	}
+	
+	public A getArg() {
+		return arg;
+	}
 	
 }
