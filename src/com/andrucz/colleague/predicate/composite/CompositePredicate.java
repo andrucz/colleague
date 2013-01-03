@@ -7,6 +7,7 @@ import java.util.List;
 import com.andrucz.colleague.predicate.Predicate;
 
 import static com.andrucz.colleague.util.Checks.checkNotNull;
+import static com.andrucz.colleague.util.Checks.checkNotEmpty;
 
 public abstract class CompositePredicate<E> extends Predicate<E> {
 
@@ -14,10 +15,7 @@ public abstract class CompositePredicate<E> extends Predicate<E> {
 	
 	public CompositePredicate(Collection<Predicate<E>> predicates) {
 		checkNotNull(predicates, "predicates");
-		
-		if (predicates.isEmpty()) {
-			throw new IllegalArgumentException("predicates cannot be empty.");
-		}
+		checkNotEmpty(predicates, "predicates");
 		
 		this.predicates = new ArrayList<Predicate<E>>(predicates.size());
 		
@@ -27,9 +25,7 @@ public abstract class CompositePredicate<E> extends Predicate<E> {
 	}
 	
 	public CompositePredicate(Predicate<E> first, Predicate<E>... predicates) {
-		if (predicates.length == 0) {
-			throw new IllegalArgumentException("predicates cannot be empty.");
-		}
+		checkNotEmpty(predicates, "predicates");
 		
 		this.predicates = new ArrayList<Predicate<E>>(predicates.length);
 
