@@ -3,7 +3,6 @@ package com.andrucz.colleague;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.andrucz.colleague.conversion.ElementConverter;
 import com.andrucz.colleague.operation.OperationException;
 import com.andrucz.colleague.operation.PrintOperation;
 import com.andrucz.colleague.predicate.NotPredicate;
@@ -31,15 +30,6 @@ public final class ColleagueTest {
 		Predicate<String> predicate = new NotPredicate<String>(new StartsWithPredicate("R"));
 		Colleague.each(strs, predicate, operation);
 		
-		
-		ElementConverter<String, Integer> c = new ElementConverter<String, Integer>() {
-			
-			@Override
-			public Integer convert(String element) {
-				return Integer.valueOf(element.charAt(0));
-			}
-			
-		};
 		
 		Colleague.each(strs, not(startsWith("D")), operation);
 	}
