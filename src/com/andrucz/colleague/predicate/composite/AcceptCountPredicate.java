@@ -20,7 +20,7 @@ public final class AcceptCountPredicate<E> extends CompositePredicate<E> {
 		}
 		this.minAccepts = minAccepts;
 	}
-
+	
 	@Override
 	public boolean accept(E element) {
 		int accepts = 0;

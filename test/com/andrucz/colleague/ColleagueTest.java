@@ -10,6 +10,8 @@ import com.andrucz.colleague.predicate.NotPredicate;
 import com.andrucz.colleague.predicate.Predicate;
 import com.andrucz.colleague.predicate.string.StartsWithPredicate;
 
+import static com.andrucz.colleague.predicate.Predicates.*;
+
 public final class ColleagueTest {
 
 	public static void main(String[] args) throws OperationException {
@@ -39,8 +41,7 @@ public final class ColleagueTest {
 			
 		};
 		
-		List<Integer> l = Colleague.convert(strs, c);
-		Colleague.each(l, new PrintOperation<Integer>(System.out));
+		Colleague.each(strs, not(startsWith("D")), operation);
 	}
 
 }

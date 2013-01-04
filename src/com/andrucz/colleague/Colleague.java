@@ -16,7 +16,7 @@ import static com.andrucz.colleague.util.Checks.checkPosition;
 
 public final class Colleague {
 	
-	public static<E> E getElementAt(Collection<E> elements, int position, Predicate<E> predicate) {
+	public static<E> E get(Collection<E> elements, int position, Predicate<E> predicate) {
 		checkNotNull(predicate, "predicate");
 		checkPosition(position, elements.size());
 
@@ -40,7 +40,7 @@ public final class Colleague {
         throw new IndexOutOfBoundsException("index: " + position);
 	}
 	
-	public static <E> List<E> getElements(Collection<E> elements, Predicate<E> predicate) {
+	public static <E> List<E> list(Collection<E> elements, Predicate<E> predicate) {
 		checkNotNull(elements, "elements");
 		checkNotNull(predicate, "predicate");
 		
