@@ -5,9 +5,9 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 
-import com.andrucz.colleague.conversion.ElementConverter;
-import com.andrucz.colleague.operation.Operation;
-import com.andrucz.colleague.operation.OperationException;
+import com.andrucz.commons.conversion.ElementConverter;
+import com.andrucz.commons.operation.Operation;
+import com.andrucz.commons.operation.OperationException;
 import com.andrucz.predicate.AcceptAllPredicate;
 import com.andrucz.predicate.Predicate;
 

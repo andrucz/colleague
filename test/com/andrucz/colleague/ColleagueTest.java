@@ -3,8 +3,8 @@ package com.andrucz.colleague;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.andrucz.colleague.operation.OperationException;
-import com.andrucz.colleague.operation.PrintOperation;
+import com.andrucz.commons.operation.OperationException;
+import com.andrucz.commons.operation.PrintOperation;
 import com.andrucz.predicate.NotPredicate;
 import com.andrucz.predicate.Predicate;
 import com.andrucz.predicate.string.StartsWithPredicate;
