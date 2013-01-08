@@ -2,7 +2,7 @@ package com.andrucz.colleague.operation;
 
 import java.io.PrintStream;
 
-import static com.andrucz.colleague.util.Checks.checkNotNull;
+import static com.andrucz.commons.check.Checks.checkNotNull;
 
 public final class PrintOperation<E> extends Operation<E> {
 

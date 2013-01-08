@@ -5,11 +5,11 @@ import java.util.List;
 
 import com.andrucz.colleague.operation.OperationException;
 import com.andrucz.colleague.operation.PrintOperation;
-import com.andrucz.colleague.predicate.NotPredicate;
-import com.andrucz.colleague.predicate.Predicate;
-import com.andrucz.colleague.predicate.string.StartsWithPredicate;
+import com.andrucz.predicate.NotPredicate;
+import com.andrucz.predicate.Predicate;
+import com.andrucz.predicate.string.StartsWithPredicate;
 
-import static com.andrucz.colleague.predicate.Predicates.*;
+import static com.andrucz.predicate.Predicates.*;
 
 public final class ColleagueTest {
 

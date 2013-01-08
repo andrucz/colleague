@@ -8,11 +8,11 @@ import java.util.List;
 import com.andrucz.colleague.conversion.ElementConverter;
 import com.andrucz.colleague.operation.Operation;
 import com.andrucz.colleague.operation.OperationException;
-import com.andrucz.colleague.predicate.AcceptAllPredicate;
-import com.andrucz.colleague.predicate.Predicate;
+import com.andrucz.predicate.AcceptAllPredicate;
+import com.andrucz.predicate.Predicate;
 
-import static com.andrucz.colleague.util.Checks.checkNotNull;
-import static com.andrucz.colleague.util.Checks.checkPosition;
+import static com.andrucz.commons.check.Checks.checkNotNull;
+import static com.andrucz.commons.check.Checks.checkPosition;
 
 public final class Colleague {
 	
