@@ -82,7 +82,7 @@ Count the elements that are between 10 and 20:
 ```java
 int c = Colleague.count(list, new BetweenPredicate(10, 20));
 
-int c = Colleague.count(list, between(10, 20));
+int c = count(list, between(10, 20));
 ```
 
 Verify if there is a element in the list that are not contained in another list:
